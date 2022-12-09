@@ -7,10 +7,8 @@ inputFile = open(inputName, 'r')
 data = inputFile.read().split('\n')
 
 # Part 1
-score = 0
-
+ans = 0
 n = len(data)
-
 for i in range(n):
     for j in range(n):
         vis = False
@@ -36,25 +34,22 @@ for i in range(n):
         vis |= tmp
 
         if vis:
-            score += 1
-print(score)
-
-
+            ans += 1
+print(ans)
 
 # Part 2
-score = 0
-
+ans = 0
 for i in range(n):
     for j in range(n):
         vis = False
-        ans = 1
+        score = 1
 
         cur = 0
         for k in range(i+1, n):
             cur = k-i
             if data[k][j] >= data[i][j]:
                 break
-        ans *= cur
+        score *= cur
 
         cur = 0
         tmp = True
@@ -62,7 +57,7 @@ for i in range(n):
             cur = k-j
             if data[i][k] >= data[i][j]:
                 break
-        ans *= cur
+        score *= cur
 
         cur = 0
         tmp = True
@@ -70,7 +65,7 @@ for i in range(n):
             cur = i-k
             if data[k][j] >= data[i][j]:
                 break
-        ans *= cur
+        score *= cur
 
         cur = 0
         tmp = True
@@ -79,7 +74,6 @@ for i in range(n):
             if data[i][k] >= data[i][j]:
                 break
 
-        ans *= cur
-        score = max(score, ans)
-
-print(score)
+        score *= cur
+        ans = max(ans, score)
+print(ans)

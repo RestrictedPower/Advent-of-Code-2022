@@ -36,7 +36,6 @@ for lineIdx in range(start, len(data)):
     amount, _from, _to = map(int, line.split(' ')[1:6:2])
     for i in range(amount):
         stackMap[_to].append(stackMap[_from].pop())
-
 ans = "".join([stackMap[i][-1] for i in range(1, n+1)])
 print(ans)
 
@@ -48,6 +47,5 @@ for lineIdx in range(start, len(data)):
     for i in range(len(stackMap[_from])-amount,len(stackMap[_from])):
         stackMap[_to].append(stackMap[_from][i])
     stackMap[_from] = stackMap[_from][:len(stackMap[_from])-amount]
-
 ans = "".join([stackMap[i][-1] for i in range(1, n+1)])
 print(ans)

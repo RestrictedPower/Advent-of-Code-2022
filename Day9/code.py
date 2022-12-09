@@ -6,23 +6,20 @@ inputName = 'input.txt'
 inputFile = open(inputName, 'r')
 data = inputFile.read().split('\n')
 
-dirX = {'U':1, 'D':-1,'L':0,'R':0}
-dirY = {'U':0, 'D':0,'L':-1,'R':1}
+dirX = {'U': 1, 'D': -1, 'L': 0, 'R': 0}
+dirY = {'U': 0, 'D': 0, 'L': -1, 'R': 1}
+
 def hash(x, y):
     return str(x)+':'+str(y)
 
 # Part 1
 hX, hY = 0,0
 tX, tY = 0,0
-
 s = set()
-
 s.add(hash(tX,tY))
-
 for line in data:
     dir = line.split(' ')[0]
     amount = int(line.split(' ')[1])
-
     for x in range(amount):
         hX += dirX[dir]
         hY += dirY[dir]
@@ -38,14 +35,11 @@ for line in data:
             s.add(hash(tX,tY))
 print(len(s))
 
-
-
 # Part 2
 X = [0 for i in range(10)]
 Y = [0 for i in range(10)]
 s = set()
 s.add(hash(0,0))
-
 for line in data:
     dir = line.split(' ')[0]
     amount = int(line.split(' ')[1])
@@ -63,7 +57,6 @@ for line in data:
                     Y[i] += 1
                 elif Y[i+1] < Y[i]:
                     Y[i] -= 1
-
                 if(i == 0):
                     s.add(hash(X[i],Y[i]))
 print(len(s))
