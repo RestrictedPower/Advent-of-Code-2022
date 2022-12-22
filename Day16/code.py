@@ -17,7 +17,7 @@ for line in data:
     for to in line.replace('valves','valve').split('valve')[1].strip().split(', '):
         adj[currentNode].append(to)
 
-def dfs(i, taken, time, haveOther, ):
+def dfs(i, taken, time, haveOther):
     if time < 0: return -10000
     if time == 0 and not haveOther: return 0
     s = (i, frozenset(taken), time, haveOther)
