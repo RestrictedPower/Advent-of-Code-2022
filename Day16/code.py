@@ -34,8 +34,8 @@ def dfs(i, taken, time, haveOther):
         ans = max(ans, dfs(j, taken, time-1, haveOther))
     memo[s] = ans
     return ans
-# Part 1
 
+# Part 1
 memo = {}
 print(dfs('AA', set(), 30, False))
 
