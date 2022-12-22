@@ -28,7 +28,7 @@ def dfs(i):
     u1, u2, op = adj[i][0], adj[i][1], adj[i][2]
     return eval(str(dfs(u1)) + op + str(dfs(u2)))
 
-print(dfs('root'))
+print(int(dfs('root')))
 
 # Part 2
 numMap['humn'] = 'x'
@@ -44,4 +44,4 @@ def dfs2(i):
 
 eq = dfs2('root')
 sympy_eq = sp.sympify("Eq(" + eq.replace("=", ",") + "0)")
-print(solve(sympy_eq))
+print(solve(sympy_eq)[0])
