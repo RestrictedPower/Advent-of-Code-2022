@@ -37,7 +37,7 @@ while True:
     if (500, 0) in sand: break
     
     # Optimization begin:
-    # If some sand has only stone below it, it can be considered stone (we won't have to operate over it agaibn).
+    # If some sand has only stone below it, it can be considered stone (we won't have to operate over it again).
     newStones = []
     for i in sand:
         onlyStoneBelow = True # Reached bottom
