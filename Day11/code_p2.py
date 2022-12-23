@@ -22,7 +22,6 @@ for i in range(n):
     monkeyInfo[i]['false'] = int(d[5].split('monkey')[1].strip())
     div *= monkeyInfo[i]['div']
 
-# Part 1
 for _ in range(10000):
     for i in range(n):
         while monkeyInfo[i]['stack']:
